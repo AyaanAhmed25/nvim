@@ -1,6 +1,10 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+-- save file regardless of the mode with control s
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 
+--keymap to map jk to esc
+vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')

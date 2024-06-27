@@ -61,12 +61,31 @@ return {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        defaults = {
+          layout_config = {
+            horizontal = {
+              preview_width = 0.65,
+
+              size = {
+                width = "100%",
+                height = "100%",
+              },
+            },
+          },
+        },
         pickers = {
           buffers = {
             sort_mru = true,
-            ignore_current_buffer = true
-
-          }
+            ignore_current_buffer = true,
+            mappings = {
+              n = {
+                ["<C-k>"] = require('telescope.actions').delete_buffer,
+              },
+              i = {
+                ["<C-k>"] = require('telescope.actions').delete_buffer,
+              },
+            },
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -78,7 +97,7 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-
+      pcall(require('telescope').load_extension, 'neoclip')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })

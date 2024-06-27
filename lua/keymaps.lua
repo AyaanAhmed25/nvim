@@ -3,6 +3,11 @@
 -- save file regardless of the mode with control s
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 
+-- move lines up or down like in normal IDES:
+vim.keymap.set({ 'i', 'n' }, "<A-j>", ":m .+1<CR>==")
+vim.keymap.set({ 'i', 'n' }, "<A-k>", ":m .-2<CR>==")
+
+
 --keymap to map jk to esc
 vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode

@@ -8,6 +8,29 @@ vim.keymap.set({ 'i', 'n' }, "<A-j>", ":m .+1<CR>==")
 vim.keymap.set({ 'i', 'n' }, "<A-k>", ":m .-2<CR>==")
 
 
+-- Move cursor in Insert mode
+vim.keymap.set('i', '<D-h>', '<Left>', { desc = 'Move cursor left in insert mode', noremap = true, silent = true })
+vim.keymap.set('i', '<D-j>', '<Down>', { desc = 'Move cursor down in insert mode', noremap = true, silent = true })
+vim.keymap.set('i', '<D-k>', '<Up>', { desc = 'Move cursor up in insert mode', noremap = true, silent = true })
+vim.keymap.set('i', '<D-l>', '<Right>', { desc = 'Move cursor right in insert mode', noremap = true, silent = true })
+
+-- Move cursor in Command mode
+vim.keymap.set('c', '<D-h>', '<Left>', { desc = 'Move cursor left in command mode', noremap = true, silent = true })
+vim.keymap.set('c', '<D-j>', '<Down>', { desc = 'Move cursor down in command mode', noremap = true, silent = true })
+vim.keymap.set('c', '<D-k>', '<Up>', { desc = 'Move cursor up in command mode', noremap = true, silent = true })
+vim.keymap.set('c', '<D-l>', '<Right>', { desc = 'Move cursor right in command mode', noremap = true, silent = true })
+
+-- Move cursor in Terminal mode
+vim.keymap.set('t', '<D-h>', '<C-\\><C-N><C-w>h',
+  { desc = 'Move cursor left in terminal mode', noremap = true, silent = true })
+vim.keymap.set('t', '<D-j>', '<C-\\><C-N><C-w>j',
+  { desc = 'Move cursor down in terminal mode', noremap = true, silent = true })
+vim.keymap.set('t', '<D-k>', '<C-\\><C-N><C-w>k',
+  { desc = 'Move cursor up in terminal mode', noremap = true, silent = true })
+vim.keymap.set('t', '<D-l>', '<C-\\><C-N><C-w>l',
+  { desc = 'Move cursor right in terminal mode', noremap = true, silent = true })
+
+
 --keymap to map jk to esc
 vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode

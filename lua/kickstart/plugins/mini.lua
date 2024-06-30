@@ -16,7 +16,23 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.bracketed').setup()
+      require('mini.basics').setup {
+        mappings = {
+          -- Basic mappings (better 'jk', save with Ctrl+S, ...)
+          basic = true,
 
+          -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
+          -- Supply empty string to not create these mappings.
+          option_toggle_prefix = [[,]],
+
+          -- Window navigation with <C-hjkl>, resize with <C-arrow>
+          windows = true,
+
+          -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
+          move_with_alt = true,
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

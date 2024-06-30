@@ -22,7 +22,6 @@ return {
       require('nvim-treesitter.install').prefer_git = false
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
-
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
       --
@@ -31,5 +30,13 @@ return {
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    config = function()
+      require('treesitter-context').setup {
+        multiline_threshold = 7
+      }
+    end
+  }
 }
 -- vim: ts=2 sts=2 sw=2 et

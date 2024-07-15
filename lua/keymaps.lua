@@ -7,6 +7,11 @@ vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Sav
 vim.keymap.set({ 'i', 'n' }, "<A-j>", ":m .+1<CR>==")
 vim.keymap.set({ 'i', 'n' }, "<A-k>", ":m .-2<CR>==")
 
+-- paste in new line, instead of where cursor is
+-- Set the key mappings
+vim.keymap.set('n', '[p', 'O<Esc>p', { desc = '[P]aste in line before cursor', noremap = true, silent = true })
+vim.keymap.set('n', ']p', 'o<Esc>p', { desc = '[P]aste in line after cursor', noremap = true, silent = true })
+
 
 -- Move cursor in Insert mode
 vim.keymap.set('i', '<D-h>', '<Left>', { desc = 'Move cursor left in insert mode', noremap = true, silent = true })

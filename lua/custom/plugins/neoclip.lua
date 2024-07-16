@@ -5,7 +5,14 @@ return {
 	},
 	config = function()
 		require('neoclip').setup({
-			enable_persistent_history = true
+			enable_persistent_history = true,
+			keys = {
+				telescope = {
+					i = {
+						paste = '<c-v>',
+					}
+				}
+			}
 		})
 	end,
 

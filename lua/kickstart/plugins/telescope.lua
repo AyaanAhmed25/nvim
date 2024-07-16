@@ -76,7 +76,7 @@ return {
         pickers = {
           buffers = {
             sort_mru = true,
-            ignore_current_buffer = true,
+            ignore_current_buffer = false,
             mappings = {
               n = {
                 ["<C-k>"] = require('telescope.actions').delete_buffer,

@@ -36,7 +36,7 @@ return {
 
           -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
           -- Supply empty string to not create these mappings.
-          option_toggle_prefix = [[,]],
+          option_toggle_prefix = [[#]],
 
           -- Window navigation with <C-hjkl>, resize with <C-arrow>
           windows = true,

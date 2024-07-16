@@ -8,6 +8,27 @@ return {
     name = 'catppuccin',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
+      require('catppuccin').setup({
+        default_integrations = true,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          diffview=true,
+          treesitter=true,
+          flash = true,
+          indent_blankline = {
+            enabled = true,
+            scope_color = "rosewater", -- catppuccin color (eg. `lavender`) Default: text
+            colored_indent_levels = true,
+          },
+          neotree=true,
+          navic = {
+            enabled = true,
+            -- custom_bg = "surface0", -- "lualine" will set background to mantle
+          },
+        }
+
+      })
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.

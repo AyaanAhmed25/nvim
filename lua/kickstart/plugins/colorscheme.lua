@@ -1,4 +1,10 @@
 return {
+  {
+    "folke/tokyonight.nvim"
+  },
+  {
+    "rebelot/kanagawa.nvim"
+  },
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -9,30 +15,49 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       require('catppuccin').setup({
+        custom_highlights = function(colors)
+          return {
+            lualine_x_fileType = { fg=colors.blue, bg=colors.red },
+          }
+        end,
         default_integrations = true,
+        styles = {
+          comments = { "italic" },
+          functions = { "bold" },
+          keywords = { "italic" },
+          operators = { "bold" },
+          conditionals = { "bold" },
+          loops = { "bold" },
+          booleans = { "bold", "italic" },
+        },
         integrations = {
           cmp = true,
           gitsigns = true,
-          diffview=true,
-          treesitter=true,
+          native_lsp = true,
+          diffview = true,
+          notify = false,
+          treesitter = true,
           flash = true,
           indent_blankline = {
             enabled = true,
-            scope_color = "rosewater", -- catppuccin color (eg. `lavender`) Default: text
-            colored_indent_levels = true,
+            scope_color = "sky", -- catppuccin color (eg. `lavender`) Default: text
+            colored_indent_levels = false,
           },
-          neotree=true,
+          neotree = true,
           navic = {
             enabled = true,
             -- custom_bg = "surface0", -- "lualine" will set background to mantle
           },
+          rainbow_delimiters = true,
+          dashboard = true,
+          telescope = { enabled = true, style = "nvchad" },
         }
 
       })
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'

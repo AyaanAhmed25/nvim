@@ -62,14 +62,26 @@ return {
         --   },
         -- },
         defaults = {
+          sorting_strategy = 'ascending',
+          file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+          grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+          qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+          file_sorter = require("telescope.sorters").get_fuzzy_file,
+          generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+          buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+          results_title = false,
+          prompt_prefix = "   ",
           layout_config = {
             horizontal = {
+              prompt_position = 'top',
               preview_width = 0.65,
 
               size = {
                 width = "100%",
                 height = "100%",
               },
+              width = 0.85,
+              height = 0.92,
             },
           },
         },
@@ -116,6 +128,7 @@ return {
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
+          borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })

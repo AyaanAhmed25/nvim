@@ -4,6 +4,7 @@ return {
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects'
     },
+    -- TODO: make option + u go up in treesitter context
     config = function()
       local spec_treesitter = require('mini.ai').gen_spec.treesitter
       -- Better Around/Inside textobjects
@@ -27,7 +28,7 @@ return {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      -- require('mini.surround').setup()
       require('mini.bracketed').setup()
       require('mini.basics').setup {
         mappings = {

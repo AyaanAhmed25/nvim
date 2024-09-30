@@ -89,8 +89,38 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
+-- vim.api.nvim_create_autocmd("Filetype", {
+--     pattern = "norg",
+--     callback = function()
+--         vim.keymap.set("n", "my-key-here", "<Plug>(neorg.pivot.list.toggle)", { buffer = true })
+--     end,
+-- })
+-- for norg file map local leader to comma, otherwise make it space
 -- Set to true if you have a Nerd Font installed and selected in the terminal
+-- local augroup = vim.api.nvim_create_augroup('LocalLeaderSwitch', { clear = true })
+--
+-- -- Autocmd to set the local leader to ',' for Norg files
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = augroup,
+--   pattern = 'norg',
+--   callback = function()
+--     vim.g.maplocalleader = ","
+--     vim.cmd('Lazy reload all')
+--   end
+-- })
+--
+-- -- Autocmd to reset the local leader to ' ' for non-Norg files
+-- vim.api.nvim_create_autocmd('BufWinEnter', {
+--   group = augroup,
+--   pattern = '*',
+--   callback = function()
+--     if vim.bo.filetype ~= 'norg' then
+--       vim.g.maplocalleader = " "
+--       vim.cmd('Lazy reload all')
+--     end
+--   end
+-- })
+--
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
@@ -104,6 +134,9 @@ require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
-
+-- custom command, in command mode typing Path prints the path of the current buffer, useful for me cuz in my statusline to save space its only filename.
+vim.api.nvim_create_user_command('Path', function()
+  print(vim.fn.expand('%:p'))
+end, {})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

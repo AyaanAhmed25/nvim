@@ -80,7 +80,7 @@ return {
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map ("<leader>di", "<cmd>Navbuddy<cr>", "[D]ocument [I]nfo")
+          map("<leader>di", "<cmd>Navbuddy<cr>", "[D]ocument [I]nfo")
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
@@ -224,6 +224,34 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+        },
+      }
+      local navbuddyActions = require("nvim-navbuddy.actions")
+      require('nvim-navbuddy').setup {
+        window = {
+          border = "single", -- "rounded", "double", "solid", "none"
+          -- or an array with eight chars building up the border in a clockwise fashion
+          -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
+          size = "70%",   -- Or table format example: { height = "40%", width = "100%"}
+          position = "100%", -- Or table format example: { row = "100%", col = "0%"}
+          scrolloff = nil, -- scrolloff value within navbuddy window
+          sections = {
+            left = {
+              size = "20%",
+              border = nil,   -- You can set border style for each section individually as well.
+            },
+            mid = {
+              size = "30%",
+              border = nil,
+            },
+            right = {
+              -- No size option for right most section. It fills to
+              -- remaining area.
+              border = nil,
+              preview = "leaf",   -- Right section can show previews too.
+              -- Options: "leaf", "always" or "never"
+            }
+          },
         },
       }
     end,

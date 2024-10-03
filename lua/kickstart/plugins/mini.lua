@@ -46,6 +46,8 @@ return {
           move_with_alt = true,
         },
       }
+      -- move lines or entire blocks of code easily
+      require('mini.move').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

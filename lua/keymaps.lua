@@ -3,10 +3,6 @@
 -- save file regardless of the mode with control s
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 
--- move lines up or down like in normal IDES:
-vim.keymap.set({ 'i', 'n' }, "<A-j>", ":m .+1<CR>==")
-vim.keymap.set({ 'i', 'n' }, "<A-k>", ":m .-2<CR>==")
-
 -- paste in new line, instead of where cursor is
 -- Set the key mappings
 vim.keymap.set('n', '[p', 'O<Esc>p', { desc = '[P]aste in line before cursor', noremap = true, silent = true })

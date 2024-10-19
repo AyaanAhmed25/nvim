@@ -6,6 +6,23 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      {
+        'nvimdev/lspsaga.nvim',
+        config = function()
+          require('lspsaga').setup({
+            lightbulb = {
+              enable = false
+            },
+            ui = {
+              kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+            },
+          })
+        end,
+        dependencies = {
+          'nvim-treesitter/nvim-treesitter', -- optional
+          'nvim-tree/nvim-web-devicons',     -- optional
+        }
+      },
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -97,7 +114,7 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>rn', "<cmd>Lspsaga rename <CR>", '[R]e[n]ame')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -105,8 +122,9 @@ return {
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
-          map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
+          -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('K', "<cmd> Lspsaga hover_doc<CR>", 'Hover Documentation')
+          
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -232,13 +250,13 @@ return {
           border = "single", -- "rounded", "double", "solid", "none"
           -- or an array with eight chars building up the border in a clockwise fashion
           -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
-          size = "70%",   -- Or table format example: { height = "40%", width = "100%"}
+          size = "70%",      -- Or table format example: { height = "40%", width = "100%"}
           position = "100%", -- Or table format example: { row = "100%", col = "0%"}
-          scrolloff = nil, -- scrolloff value within navbuddy window
+          scrolloff = nil,   -- scrolloff value within navbuddy window
           sections = {
             left = {
               size = "20%",
-              border = nil,   -- You can set border style for each section individually as well.
+              border = nil, -- You can set border style for each section individually as well.
             },
             mid = {
               size = "30%",
@@ -248,7 +266,7 @@ return {
               -- No size option for right most section. It fills to
               -- remaining area.
               border = nil,
-              preview = "leaf",   -- Right section can show previews too.
+              preview = "leaf", -- Right section can show previews too.
               -- Options: "leaf", "always" or "never"
             }
           },

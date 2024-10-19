@@ -35,9 +35,14 @@ return {
         -- statusline will be shown only if 'laststatus' == 3
         laststatus = 0, -- turn off the statusline in zen mode
       },
+      tmux = { enabled = true },
       kitty = {
         enabled = true,
         font = "+3", -- font size increment
+      },
+      alacritty = {
+        enabled = true,
+        font = "19", -- font size
       },
     },
   },

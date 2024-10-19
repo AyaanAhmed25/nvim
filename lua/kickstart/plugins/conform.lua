@@ -6,7 +6,7 @@ return {
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_fallback = true }
+          require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -27,6 +27,9 @@ return {
       -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { 'prettierd' },
+        html = { 'prettierd' },
+        css = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

@@ -48,6 +48,7 @@ return {
       }
       -- move lines or entire blocks of code easily
       require('mini.move').setup()
+      require('mini.cursorword').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,

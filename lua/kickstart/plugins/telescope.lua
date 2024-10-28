@@ -104,14 +104,29 @@ return {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          aerial = {
+            show_lines = false,
+            show_nesting = {
+              ['_'] = false, -- This key will be the default
+              lua = true, -- You can set the option for specific filetypes
+            },
+          },
+          frecency = {
+            show_scores = true,
+            show_unindexed = true,
+            ignore_patterns = { '*.git/*', '*/tmp/*' },
+          },
         },
       }
-
+      -- require 'telescope._extensions.harpoon'
+      -- require 'telescope._extensions.session-lens'
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'neoclip')
       pcall(require('telescope').load_extension, 'frecency')
+      pcall(require('telescope').load_extension, 'harpoon')
+      pcall(require('telescope').load_extension, 'aerial')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
@@ -125,6 +140,9 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sp', builtin.registers, { desc = '[S]earch registers' })
+      vim.keymap.set('n', '<leader>sa', function()
+        require('telescope').extensions.aerial.aerial()
+      end, { desc = '[S]earch [A]erial' })
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.

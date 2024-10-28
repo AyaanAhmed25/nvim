@@ -136,6 +136,7 @@ return {
           dashboard = true,
           telescope = { enabled = true, style = "nvchad" },
           lsp_saga = true,
+          grug_far = true,
         }
 
       })

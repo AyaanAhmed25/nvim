@@ -59,4 +59,6 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- diagonal lines "/" in place of deleted lines in diff mode code from https://github.com/sindrets/diffview.nvim 
+vim.opt.fillchars:append { diff = "╱" }
 -- vim: ts=2 sts=2 sw=2 et

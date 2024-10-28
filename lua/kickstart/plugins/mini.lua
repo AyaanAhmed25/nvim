@@ -29,7 +29,7 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       -- require('mini.surround').setup()
-      -- require('mini.bracketed').setup()
+      require('mini.bracketed').setup()
       require('mini.basics').setup {
         mappings = {
           -- Basic mappings (better 'jk', save with Ctrl+S, ...)

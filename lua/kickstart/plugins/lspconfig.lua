@@ -124,10 +124,12 @@ return {
           --  See `:help K` for why this keymap.
           -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
           map('K', "<cmd> Lspsaga hover_doc<CR>", 'Hover Documentation')
-          
+
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gpt', vim.lsp.buf.declaration, '[G]oto [P]review [T]ype')
+          map('gpd', vim.lsp.buf.declaration, '[G]oto [P]review [D]efinition')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.

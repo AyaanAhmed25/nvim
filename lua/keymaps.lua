@@ -15,28 +15,38 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 --make paste better idk primeagen has it and there was a good reason for it
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Move cursor in Insert mode
-vim.keymap.set('i', '<D-h>', '<Left>', { desc = 'Move cursor left in insert mode', noremap = true, silent = true })
-vim.keymap.set('i', '<D-j>', '<Down>', { desc = 'Move cursor down in insert mode', noremap = true, silent = true })
-vim.keymap.set('i', '<D-k>', '<Up>', { desc = 'Move cursor up in insert mode', noremap = true, silent = true })
-vim.keymap.set('i', '<D-l>', '<Right>', { desc = 'Move cursor right in insert mode', noremap = true, silent = true })
+-- mini.basics handles all this
+-- -- Move cursor in Insert mode
+-- vim.keymap.set('i', '<M-h>', '<Left>', { desc = 'Move cursor left in insert mode', noremap = true, silent = true })
+-- vim.keymap.set('i', '<M-j>', '<Down>', { desc = 'Move cursor down in insert mode', noremap = true, silent = true })
+-- vim.keymap.set('i', '<M-k>', '<Up>', { desc = 'Move cursor up in insert mode', noremap = true, silent = true })
+-- vim.keymap.set('i', '<M-l>', '<Right>', { desc = 'Move cursor right in insert mode', noremap = true, silent = true })
+--
+-- -- Move cursor in Command mode
+-- vim.keymap.set('c', '<M-h>', '<Left>', { desc = 'Move cursor left in command mode', noremap = true, silent = true })
+-- vim.keymap.set('c', '<M-j>', '<Down>', { desc = 'Move cursor down in command mode', noremap = true, silent = true })
+-- vim.keymap.set('c', '<M-k>', '<Up>', { desc = 'Move cursor up in command mode', noremap = true, silent = true })
+-- vim.keymap.set('c', '<M-l>', '<Right>', { desc = 'Move cursor right in command mode', noremap = true, silent = true })
+--
+-- -- Move cursor in Terminal mode
+-- vim.keymap.set('t', '<M-h>', '<C-\\><C-N><C-w>h',
+--   { desc = 'Move cursor left in terminal mode', noremap = true, silent = true })
+-- vim.keymap.set('t', '<M-j>', '<C-\\><C-N><C-w>j',
+--   { desc = 'Move cursor down in terminal mode', noremap = true, silent = true })
+-- vim.keymap.set('t', '<M-k>', '<C-\\><C-N><C-w>k',
+--   { desc = 'Move cursor up in terminal mode', noremap = true, silent = true })
+-- vim.keymap.set('t', '<M-l>', '<C-\\><C-N><C-w>l',
+--   { desc = 'Move cursor right in terminal mode', noremap = true, silent = true })
 
--- Move cursor in Command mode
-vim.keymap.set('c', '<D-h>', '<Left>', { desc = 'Move cursor left in command mode', noremap = true, silent = true })
-vim.keymap.set('c', '<D-j>', '<Down>', { desc = 'Move cursor down in command mode', noremap = true, silent = true })
-vim.keymap.set('c', '<D-k>', '<Up>', { desc = 'Move cursor up in command mode', noremap = true, silent = true })
-vim.keymap.set('c', '<D-l>', '<Right>', { desc = 'Move cursor right in command mode', noremap = true, silent = true })
-
--- Move cursor in Terminal mode
-vim.keymap.set('t', '<D-h>', '<C-\\><C-N><C-w>h',
-  { desc = 'Move cursor left in terminal mode', noremap = true, silent = true })
-vim.keymap.set('t', '<D-j>', '<C-\\><C-N><C-w>j',
-  { desc = 'Move cursor down in terminal mode', noremap = true, silent = true })
-vim.keymap.set('t', '<D-k>', '<C-\\><C-N><C-w>k',
-  { desc = 'Move cursor up in terminal mode', noremap = true, silent = true })
-vim.keymap.set('t', '<D-l>', '<C-\\><C-N><C-w>l',
-  { desc = 'Move cursor right in terminal mode', noremap = true, silent = true })
-
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+--
+--  See `:help wincmd` for a list of all window commands
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+--
 
 --keymap to map jk to esc
 vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
@@ -64,15 +74,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
---
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

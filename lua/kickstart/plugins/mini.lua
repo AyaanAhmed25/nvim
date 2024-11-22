@@ -13,7 +13,7 @@ return {
       -- --  - va)  - [V]isually select [A]round [)]paren
       -- --  - yinq - [Y]ank [I]nside [N]ext [']quote
       -- --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500}
+      require('mini.ai').setup { n_lines = 500 }
       -- require('mini.ai').setup { n_lines = 500,
       --   custom_textobjects = {
       --     F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
@@ -30,7 +30,9 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       -- require('mini.surround').setup()
-      require('mini.bracketed').setup()
+      require('mini.bracketed').setup {
+        oldfile = { suffix = 'f', options = {} },
+      }
       require('mini.basics').setup {
         mappings = {
           -- Basic mappings (better 'jk', save with Ctrl+S, ...)
@@ -50,7 +52,42 @@ return {
       -- move lines or entire blocks of code easily
       require('mini.move').setup()
       require('mini.cursorword').setup()
+      require('mini.splitjoin').setup {
+        -- Module mappings. Use `''` (empty string) to disable one.
+        -- Created for both Normal and Visual modes.
+        mappings = {
+          toggle = '',
+          split = 'gs',
+          join = 'gS',
+        },
 
+        -- Detection options: where split/join should be done
+        detect = {
+          -- Array of Lua patterns to detect region with arguments.
+          -- Default: { '%b()', '%b[]', '%b{}' }
+          brackets = nil,
+
+          -- String Lua pattern defining argument separator
+          separator = ',',
+
+          -- Array of Lua patterns for sub-regions to exclude separators from.
+          -- Enables correct detection in presence of nested brackets and quotes.
+          -- Default: { '%b()', '%b[]', '%b{}', '%b""', "%b''" }
+          exclude_regions = nil,
+        },
+
+        -- Split options
+        split = {
+          hooks_pre = {},
+          hooks_post = {},
+        },
+
+        -- Join options
+        join = {
+          hooks_pre = {},
+          hooks_post = {},
+        },
+      }
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin

@@ -18,13 +18,22 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = false, -- set to `false` to disable one of the mappings
+          node_incremental = 'm',
+          scope_incremental = '-',
+          node_decremental = 'n',
+        },
+      },
       textsubjects = {
         enable = true,
         prev_selection = ',', -- (Optional) keymap to select the previous selection
         keymaps = {
           ['.'] = 'textsubjects-smart',
-          [';'] = 'textsubjects-container-outer',
-          ['i;'] = { 'textsubjects-container-inner', desc = 'Select inside containers (classes, functions, etc.)' },
+          ['u'] = 'textsubjects-container-outer',
+          ['z'] = { 'textsubjects-container-inner', desc = 'Select inside containers (classes, functions, etc.)' },
         },
       },
       textobjects = {
@@ -33,6 +42,7 @@ return {
           lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
+            ['iv'] = '@assignment.rhs',
             ['aa'] = '@parameter.outer',
             ['ia'] = '@parameter.inner',
             ['am'] = '@function.outer',

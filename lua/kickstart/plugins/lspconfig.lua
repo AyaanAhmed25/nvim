@@ -7,7 +7,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       {
-        'nvimdev/lspsaga.nvim',
+        'AyaanAhmed25/lspsaga.nvim',
         config = function()
           require('lspsaga').setup {
             lightbulb = {
@@ -15,6 +15,9 @@ return {
             },
             ui = {
               kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
+            },
+            finder = {
+              left_width = 0.2,
             },
           }
         end,
@@ -129,6 +132,7 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('pt', '<cmd> Lspsaga peek_type_definition<CR>', '[G]oto [P]review [T]ype')
           map('pd', '<cmd> Lspsaga peek_definition<CR>', '[G]oto [P]review [D]efinition')
+          map('I', '<cmd> Lspsaga finder<CR>', 'implementation??')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.

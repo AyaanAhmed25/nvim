@@ -9,7 +9,7 @@ return {
   },
   {
     'tzachar/highlight-undo.nvim',
-    lazy = false,
+    lazy = true,
     keys = { { 'u' }, { '<C-r>' } },
     opts = {
       duration = 1000

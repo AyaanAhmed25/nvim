@@ -5,7 +5,7 @@ return {
   -- dependencies = { "echasnovski/mini.icons" },
   dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if prefer nvim-web-devicons
   keys = {
-    { '-', ':Oil <CR>', { desc = 'Oil reveal' } },
+    { '<leader>to', ':Oil <CR>', { desc = '[T]oggle [Oil]' } },
   },
   config = function()
     function _G.get_oil_winbar()

@@ -32,6 +32,7 @@ return {
       -- require('mini.surround').setup()
       require('mini.bracketed').setup {
         oldfile = { suffix = 'f', options = {} },
+        undo = { suffix = '', options = { disable = true } },
       }
       require('mini.basics').setup {
         mappings = {
@@ -52,6 +53,27 @@ return {
       -- move lines or entire blocks of code easily
       require('mini.move').setup()
       require('mini.cursorword').setup()
+      require('mini.files').setup {
+        mappings = {
+          close = '<esc>'
+        },
+        options = {
+          -- Whether to delete permanently or move into module-specific trash
+          permanent_delete = false,
+          -- Whether to use for editing directories
+          use_as_default_explorer = false,
+        },
+        windows = {
+          preview = true,
+          width_preview = 80
+        }
+      }
+      vim.keymap.set('n', '-', function()
+        if vim.bo.buftype ~= 'oil' then
+          require('mini.files').open()
+        end
+      end, { desc = 'open mini.nvim file explorer unless buftype is oil' })
+
       require('mini.splitjoin').setup {
         -- Module mappings. Use `''` (empty string) to disable one.
         -- Created for both Normal and Visual modes.

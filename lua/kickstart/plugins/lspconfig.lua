@@ -132,7 +132,7 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('pt', '<cmd> Lspsaga peek_type_definition<CR>', '[G]oto [P]review [T]ype')
           map('pd', '<cmd> Lspsaga peek_definition<CR>', '[G]oto [P]review [D]efinition')
-          map('I', '<cmd> Lspsaga finder<CR>', 'implementation??')
+          map('<C-f>', '<cmd> Lspsaga finder<CR>', 'implementation??')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.

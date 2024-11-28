@@ -11,6 +11,7 @@ vim.keymap.set('n', ']p', 'o<Esc>p', { desc = '[P]aste in line after cursor', no
 --center the viewport after control d and u ing
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
 --make paste better idk primeagen has it and there was a good reason for it
 vim.keymap.set("x", "<leader>p", [["_dP]])

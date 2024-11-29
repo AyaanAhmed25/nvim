@@ -1,27 +1,27 @@
 return {
   {
-    "folke/tokyonight.nvim"
+    'folke/tokyonight.nvim',
   },
   {
-    "rebelot/kanagawa.nvim"
+    'rebelot/kanagawa.nvim',
   },
   {
-    "sainnhe/everforest"
+    'sainnhe/everforest',
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    'rose-pine/neovim',
+    name = 'rose-pine',
     init = function()
-      require("rose-pine").setup({
-        variant = "main",      -- auto, main, moon, or dawn
-        dark_variant = "main", -- main, moon, or dawn
+      require('rose-pine').setup {
+        variant = 'main', -- auto, main, moon, or dawn
+        dark_variant = 'main', -- main, moon, or dawn
         dim_inactive_windows = false,
         extend_background_behind_borders = true,
 
         enable = {
           terminal = true,
           legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
-          migrations = true,        -- Handle deprecated options automatically
+          migrations = true, -- Handle deprecated options automatically
         },
 
         styles = {
@@ -31,34 +31,34 @@ return {
         },
 
         groups = {
-          border = "muted",
-          link = "iris",
-          panel = "surface",
+          border = 'muted',
+          link = 'iris',
+          panel = 'surface',
 
-          error = "love",
-          hint = "iris",
-          info = "foam",
-          note = "pine",
-          todo = "rose",
-          warn = "gold",
+          error = 'love',
+          hint = 'iris',
+          info = 'foam',
+          note = 'pine',
+          todo = 'rose',
+          warn = 'gold',
 
-          git_add = "foam",
-          git_change = "rose",
-          git_delete = "love",
-          git_dirty = "rose",
-          git_ignore = "muted",
-          git_merge = "iris",
-          git_rename = "pine",
-          git_stage = "iris",
-          git_text = "rose",
-          git_untracked = "subtle",
+          git_add = 'foam',
+          git_change = 'rose',
+          git_delete = 'love',
+          git_dirty = 'rose',
+          git_ignore = 'muted',
+          git_merge = 'iris',
+          git_rename = 'pine',
+          git_stage = 'iris',
+          git_text = 'rose',
+          git_untracked = 'subtle',
 
-          h1 = "iris",
-          h2 = "foam",
-          h3 = "rose",
-          h4 = "gold",
-          h5 = "pine",
-          h6 = "foam",
+          h1 = 'iris',
+          h2 = 'foam',
+          h3 = 'rose',
+          h4 = 'gold',
+          h5 = 'pine',
+          h6 = 'foam',
         },
 
         palette = {
@@ -85,9 +85,8 @@ return {
           --     highlight.fg = palette.foam
           -- end
         end,
-      })
-    end
-
+      }
+    end,
   },
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
@@ -98,22 +97,25 @@ return {
     name = 'catppuccin',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      require('catppuccin').setup({
-        custom_highlights = function(colors)
-          return {
-            lualine_x_fileType = { fg = colors.blue, bg = colors.red },
-          }
-        end,
+      require('catppuccin').setup {
         default_integrations = true,
         styles = {
-          comments = { "italic" },
-          functions = { "bold" },
-          keywords = { "italic" },
-          operators = { "bold" },
-          conditionals = { "bold" },
-          loops = { "bold" },
-          booleans = { "bold", "italic" },
+          comments = { 'italic', 'bold' },
+          functions = { 'bold' },
+          keywords = { 'italic' },
+          operators = { 'bold' },
+          conditionals = { 'bold', 'italic' },
+          loops = { 'bold', 'italic' },
+          booleans = { 'bold', 'italic' },
+          miscs = {},
         },
+        color_overrides = {},
+        -- custom_highlights example
+        -- custom_highlights = function(colors)
+        --   return {
+        --     Comment = { fg = colors.flamingo },
+        --   }
+        -- end,
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -124,7 +126,7 @@ return {
           flash = true,
           indent_blankline = {
             enabled = true,
-            scope_color = "sky", -- catppuccin color (eg. `lavender`) Default: text
+            scope_color = 'sky', -- catppuccin color (eg. `lavender`) Default: text
             colored_indent_levels = false,
           },
           neotree = true,
@@ -134,12 +136,11 @@ return {
           },
           rainbow_delimiters = true,
           dashboard = true,
-          telescope = { enabled = true, style = "nvchad" },
+          telescope = { enabled = true, style = 'nvchad' },
           lsp_saga = true,
           grug_far = true,
-        }
-
-      })
+        },
+      }
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.

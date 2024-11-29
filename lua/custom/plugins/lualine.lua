@@ -1,3 +1,4 @@
+local mocha = require("catppuccin.palettes").get_palette "mocha"
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', 'SmiteshP/nvim-navic' },

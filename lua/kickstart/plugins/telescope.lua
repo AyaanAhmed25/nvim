@@ -63,7 +63,7 @@ return {
         --   },
         -- },
         defaults = {
-          file_ignore_patterns = {'node_modules', 'png', 'jpeg', 'ico', 'icns', 'svg'},
+          file_ignore_patterns = {'node_modules', 'png', 'jpeg', 'ico', 'icns', 'svg', 'gif', 'ogg', 'mp3', 'mp4'},
           sorting_strategy = 'ascending',
           file_previewer = require('telescope.previewers').vim_buffer_cat.new,
           grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,

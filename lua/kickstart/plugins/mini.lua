@@ -55,7 +55,7 @@ return {
       require('mini.cursorword').setup()
       require('mini.files').setup {
         mappings = {
-          close = '<esc>'
+
         },
         options = {
           -- Whether to delete permanently or move into module-specific trash

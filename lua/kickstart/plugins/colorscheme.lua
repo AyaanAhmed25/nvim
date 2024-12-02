@@ -109,7 +109,11 @@ return {
           booleans = { 'bold', 'italic' },
           miscs = {},
         },
-        color_overrides = {},
+        -- color_overrides = {
+        --   mocha = {
+        --     base = "#11111b"
+        --   }
+        -- },
         -- custom_highlights example
         -- custom_highlights = function(colors)
         --   return {

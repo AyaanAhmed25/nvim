@@ -28,8 +28,8 @@ return {
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-telescope/telescope-frecency.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' },
-      { 'OliverChao/telescope-picker-list.nvim' },
       { 'smilovanovic/telescope-search-dir-picker.nvim' },
+      { 'AyaanAhmed25/telescope-picker-list.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
@@ -108,7 +108,30 @@ return {
           },
         },
         extensions = {
-          picker_list = {},
+          picker_list = {
+            -- excluded_pickers = {
+            --   'fzf',
+            --   'fd',
+            --   'buffer',
+            --   'oldfiles',
+            --   'commands'
+            -- },
+            -- user defined pickers
+            user_pickers = {
+              {
+                'todo',
+                function()
+                  vim.cmd [[TodoTelescope]]
+                end,
+              },
+              {
+                'a',
+                function()
+                  vim.cmd [[Telescope builtin]]
+                end,
+              },
+            },
+          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -143,7 +166,7 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', "<cmd> Telescope picker_list<cr>", { desc = '[S]earch [S]elect Telescope' })
+      vim.keymap.set('n', '<leader>ss', '<cmd> Telescope picker_list<cr>', { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })

@@ -125,7 +125,7 @@ return {
           gitsigns = true,
           native_lsp = true,
           diffview = true,
-          notify = true,
+          notify = false,
           treesitter = true,
           flash = true,
           indent_blankline = {

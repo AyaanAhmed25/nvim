@@ -27,9 +27,15 @@ return {
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
       { 'nvim-telescope/telescope-frecency.nvim' },
+      { 'jonarrien/telescope-cmdline.nvim' },
+      { 'OliverChao/telescope-picker-list.nvim' },
+      { 'smilovanovic/telescope-search-dir-picker.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    },
+    keys = {
+      { 'Q', '<cmd>Telescope cmdline<cr>', desc = 'Cmdline' },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -63,7 +69,7 @@ return {
         --   },
         -- },
         defaults = {
-          file_ignore_patterns = {'node_modules', 'png', 'jpeg', 'ico', 'icns', 'svg', 'gif', 'ogg', 'mp3', 'mp4'},
+          file_ignore_patterns = { 'node_modules', 'png', 'jpeg', 'ico', 'icns', 'svg', 'gif', 'ogg', 'mp3', 'mp4' },
           sorting_strategy = 'ascending',
           file_previewer = require('telescope.previewers').vim_buffer_cat.new,
           grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -102,6 +108,7 @@ return {
           },
         },
         extensions = {
+          picker_list = {},
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -128,12 +135,15 @@ return {
       pcall(require('telescope').load_extension, 'frecency')
       pcall(require('telescope').load_extension, 'harpoon')
       pcall(require('telescope').load_extension, 'aerial')
+      pcall(require('telescope').load_extension, 'cmdline')
+      pcall(require('telescope').load_extension, 'search_dir_picker')
+      pcall(require('telescope').load_extension, 'picker_list')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      vim.keymap.set('n', '<leader>ss', "<cmd> Telescope picker_list<cr>", { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })

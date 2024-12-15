@@ -195,6 +195,22 @@ return {
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
+        -- pylsp = {
+        --   plugins = {
+        --     pycodestyle = { enabled = false },
+        --     flake8 = { enabled = false },
+        --     pyflakes = { enabled = false },
+        --     mccabe = { enabled = false },
+        --   },
+        -- },
+        ruff = {
+          init_options = {
+            settings = {
+              lineLength = 110,
+            },
+          },
+        },
+
         -- the following rust_analyzer config makes it so that diagnostics update without having to save the file first
         rust_analyzer = {
           diagnostics = {

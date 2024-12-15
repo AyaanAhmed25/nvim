@@ -121,7 +121,7 @@ return {
         --   }
         -- end,
         integrations = {
-          cmp = true,
+          blink_cmp = true,
           gitsigns = true,
           native_lsp = true,
           diffview = true,

@@ -58,7 +58,9 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {},
+      extensions = {
+        -- 'oil'
+      },
     }
   end,
 }

@@ -16,6 +16,9 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz")
 --make paste better idk primeagen has it and there was a good reason for it
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "$")
+
 -- mini.basics handles all this
 -- -- Move cursor in Insert mode
 -- vim.keymap.set('i', '<M-h>', '<Left>', { desc = 'Move cursor left in insert mode', noremap = true, silent = true })

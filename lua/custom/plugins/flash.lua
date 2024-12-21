@@ -74,7 +74,7 @@ return {
 			},
 			label = {
 				-- allow uppercase labels
-				uppercase = true,
+				uppercase = false,
 				-- add any labels with the correct case here, that you want to exclude
 				exclude = "",
 				-- add a label for the first match in the current window.
@@ -97,7 +97,7 @@ return {
 				-- Enable this to use rainbow colors to highlight labels
 				-- Can be useful for visualizing Treesitter ranges.
 				rainbow = {
-					enabled = false,
+					enabled = true,
 					-- number between 1 and 9
 					shade = 5,
 				},

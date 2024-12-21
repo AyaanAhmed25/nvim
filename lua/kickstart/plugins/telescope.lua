@@ -175,18 +175,23 @@ return {
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sp', builtin.registers, { desc = '[S]earch registers' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
+      vim.keymap.set('n', '<leader>sb', "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", { desc = "[S]earch in [B]uffers" })
+      vim.keymap.set('n', '<leader>/', function ()
+        builtin.current_buffer_fuzzy_find()
+      end, { desc = '[/] Fuzzily search in current buffer' })
       vim.keymap.set('n', '<leader>sa', function()
         require('telescope').extensions.aerial.aerial()
       end, { desc = '[S]earch [A]erial' })
+      --i have no need for this "fancy" theme i like it better with the preview🙃
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-          previewer = false,
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      -- vim.keymap.set('n', '<leader>/', function()
+      --   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+      --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      --     winblend = 10,
+      --     borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+      --     previewer = false,
+      --   })
+      -- end, { desc = '[/] Fuzzily search in current buffer' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys

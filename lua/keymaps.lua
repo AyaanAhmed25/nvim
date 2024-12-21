@@ -9,15 +9,15 @@ vim.keymap.set('n', '[p', 'O<Esc>p', { desc = '[P]aste in line before cursor', n
 vim.keymap.set('n', ']p', 'o<Esc>p', { desc = '[P]aste in line after cursor', noremap = true, silent = true })
 
 --center the viewport after control d and u ing
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-b>", "<C-b>zz")
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-b>', '<C-b>zz')
 
 --make paste better idk primeagen has it and there was a good reason for it
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set('x', '<leader>p', [["_dP]])
 
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("n", "L", "$")
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
 
 -- mini.basics handles all this
 -- -- Move cursor in Insert mode
@@ -92,4 +92,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- vim.api.nvim_create_autocmd('CmdlineEnter', {
+--   callback = function()
+--     print 'Entering command-line mode'
+--     vim.opt.relativenumber = false
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd('CmdlineLeave', {
+--   callback = function()
+--     print 'Leaving command-line mode'
+--     vim.opt.relativenumber = true
+--   end,
+-- })
 -- vim: ts=2 sts=2 sw=2 et

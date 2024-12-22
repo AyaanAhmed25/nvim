@@ -27,7 +27,7 @@ return {
         preset = 'default',
         ['<Tab>'] = {},
         ['<S-Tab>'] = {},
-        ['<C-h>'] = { 'snippet_backward', 'fallback' },
+        ['<C-h>'] = { 'snippet_backward'--[[ , 'fallback' ]] },
         ['<C-l>'] = { 'snippet_forward' },
       },
 

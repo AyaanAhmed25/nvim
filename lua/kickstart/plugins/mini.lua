@@ -33,6 +33,7 @@ return {
       require('mini.bracketed').setup {
         oldfile = { suffix = 'f', options = {} },
         undo = { suffix = '', options = { disable = true } },
+        buffer = { suffix = '', options = { disable = true } },
       }
       require('mini.basics').setup {
         mappings = {

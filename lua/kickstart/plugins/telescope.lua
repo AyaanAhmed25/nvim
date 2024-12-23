@@ -29,6 +29,8 @@ return {
       { 'nvim-telescope/telescope-frecency.nvim' },
       { 'jonarrien/telescope-cmdline.nvim' },
       { 'smilovanovic/telescope-search-dir-picker.nvim' },
+      { 'nvim-telescope/telescope-dap.nvim' },
+      { 'debugloop/telescope-undo.nvim' },
       { 'AyaanAhmed25/telescope-picker-list.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
@@ -160,6 +162,8 @@ return {
       pcall(require('telescope').load_extension, 'aerial')
       pcall(require('telescope').load_extension, 'cmdline')
       pcall(require('telescope').load_extension, 'search_dir_picker')
+      pcall(require('telescope').load_extension, 'dap')
+      pcall(require('telescope').load_extension, 'undo')
       pcall(require('telescope').load_extension, 'picker_list')
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -175,8 +179,8 @@ return {
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sp', builtin.registers, { desc = '[S]earch registers' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
-      vim.keymap.set('n', '<leader>sb', "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", { desc = "[S]earch in [B]uffers" })
-      vim.keymap.set('n', '<leader>/', function ()
+      vim.keymap.set('n', '<leader>sb', "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", { desc = '[S]earch in [B]uffers' })
+      vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find()
       end, { desc = '[/] Fuzzily search in current buffer' })
       vim.keymap.set('n', '<leader>sa', function()

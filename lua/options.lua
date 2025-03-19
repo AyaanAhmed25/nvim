@@ -59,6 +59,20 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- neovide settings
+if vim.g.neovide then
+  vim.g.neovide_padding_top = 20
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_input_macos_option_key_is_meta = 'both'
+end
+vim.keymap.set(
+    {'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't'},
+    '<D-v>',
+    function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
+    { noremap = true, silent = true }
+)
+-- end neovide settings
+
 -- remove diagnostics, cuz i have plugin that shows it better
 vim.diagnostic.config({ virtual_text = false })
 -- diagonal lines "/" in place of deleted lines in diff mode code from https://github.com/sindrets/diffview.nvim 

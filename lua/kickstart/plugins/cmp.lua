@@ -6,31 +6,22 @@ return {
       -- Snippet Engine & its associated nvim-cmp source
       'rafamadriz/friendly-snippets',
       'L3MON4D3/LuaSnip',
+      'echasnovski/mini.snippets',
+      'xzbdmw/colorful-menu.nvim',
     },
     version = 'v0.*',
     opts = {
-      snippets = {
-        expand = function(snippet)
-          require('luasnip').lsp_expand(snippet)
-        end,
-        active = function(filter)
-          if filter and filter.direction then
-            return require('luasnip').jumpable(filter.direction)
-          end
-          return require('luasnip').in_snippet()
-        end,
-        jump = function(direction)
-          require('luasnip').jump(direction)
-        end,
-      },
+      snippets = { preset = 'mini_snippets' },
       keymap = {
         preset = 'default',
         ['<Tab>'] = {},
         ['<S-Tab>'] = {},
-        ['<C-h>'] = { 'snippet_backward'--[[ , 'fallback' ]] },
+        ['<C-h>'] = {
+          'snippet_backward',
+          'fallback',
+        },
         ['<C-l>'] = { 'snippet_forward' },
       },
-
       appearance = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
         -- useful for when your theme doesn't support blink.cmp
@@ -42,11 +33,21 @@ return {
       },
       completion = {
         trigger = {
-          show_on_insert_on_trigger_character = false,
+          -- show_on_insert_on_trigger_character = false,
         },
         menu = {
           draw = {
             columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind' } },
+            components = {
+              label = {
+                text = function(ctx)
+                  return require('colorful-menu').blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require('colorful-menu').blink_components_highlight(ctx)
+                end,
+              },
+            },
           },
         },
         documentation = {
@@ -60,7 +61,7 @@ return {
       -- default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, via `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'luasnip', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
         -- optionally disable cmdline completions
         -- cmdline = {},
       },

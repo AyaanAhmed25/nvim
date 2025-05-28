@@ -100,13 +100,13 @@ return {
       require('catppuccin').setup {
         default_integrations = true,
         styles = {
-          comments = { 'italic', 'bold' },
+          comments = { 'italic' },
           functions = { 'bold' },
           keywords = { 'italic' },
           operators = { 'bold' },
-          conditionals = { 'bold', 'italic' },
-          loops = { 'bold', 'italic' },
-          booleans = { 'bold', 'italic' },
+          conditionals = { 'italic' },
+          loops = { 'italic' },
+          booleans = { 'italic' },
           miscs = {},
         },
         -- color_overrides = {

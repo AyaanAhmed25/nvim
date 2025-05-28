@@ -43,7 +43,7 @@ return {
           'MunifTanjim/nui.nvim',
         },
         opts = {
-          lsp = { auto_attach = true },
+          lsp = { auto_attach = false },
         },
       },
     },
@@ -193,6 +193,24 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
+        ts_ls = {
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = '/Users/ayaan/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                languages = { 'vue' },
+              },
+            },
+          },
+        },
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
         basedpyright = {},
         -- pylsp = {
         --   plugins = {

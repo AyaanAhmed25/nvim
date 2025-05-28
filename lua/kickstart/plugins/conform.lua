@@ -30,6 +30,7 @@ return {
         javascript = { 'prettierd' },
         html = { 'prettierd' },
         css = { 'prettierd' },
+        python = {'ruff'},
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

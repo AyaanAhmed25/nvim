@@ -11,7 +11,8 @@ return {
     },
     version = 'v0.*',
     opts = {
-      snippets = { preset = 'mini_snippets' },
+      -- snippets = { preset = 'mini_snippets' },
+      snippets = { preset = 'luasnip' },
       keymap = {
         preset = 'default',
         ['<Tab>'] = {},

@@ -30,7 +30,13 @@ return {
         javascript = { 'prettierd' },
         html = { 'prettierd' },
         css = { 'prettierd' },
-        python = {'ruff'},
+        python = {
+          'ruff_fix',
+          -- To run the Ruff formatter.
+          'ruff_format',
+          -- To organize the imports.
+          'ruff_organize_imports',
+        },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

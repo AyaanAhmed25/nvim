@@ -27,6 +27,10 @@ return {
           'nvim-tree/nvim-web-devicons', -- optional
         },
       },
+      {
+        'hinell/lsp-timeout.nvim',
+        dependencies = { 'neovim/nvim-lspconfig' },
+      },
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -264,6 +268,7 @@ return {
         capabilities = require('blink.cmp').get_lsp_capabilities()
         require('lspconfig')[server].setup {
           capabilities = capabilities,
+          autostart = false,
         }
       end
       -- Ensure the servers and tools above are installed

@@ -1,15 +1,28 @@
 return {
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+    },
+    config = function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end,
+  },
+  'saghen/blink.compat',
+  version = '2.*',
   { -- Autocompletion
     'saghen/blink.cmp',
     lazy = false,
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
+      -- Snippet Engine & it's associated nvim-cmp source
       'rafamadriz/friendly-snippets',
       'L3MON4D3/LuaSnip',
       'echasnovski/mini.snippets',
       'xzbdmw/colorful-menu.nvim',
+      'Kaiser-Yang/blink-cmp-dictionary',
+      dependencies = { 'nvim-lua/plenary.nvim' },
     },
-    version = 'v0.*',
+    version = 'v1.*',
     opts = {
       -- snippets = { preset = 'mini_snippets' },
       snippets = { preset = 'luasnip' },
@@ -24,7 +37,7 @@ return {
         ['<C-l>'] = { 'snippet_forward' },
       },
       appearance = {
-        -- sets the fallback highlight groups to nvim-cmp's highlight groups
+        -- Sets the fallback highlight groups to nvim-cmp's highlight groups
         -- useful for when your theme doesn't support blink.cmp
         -- will be removed in a future release, assuming themes add support
         use_nvim_cmp_as_default = true,
@@ -34,7 +47,7 @@ return {
       },
       completion = {
         trigger = {
-          -- show_on_insert_on_trigger_character = false,
+          -- Show_on_insert_on_trigger_character = false,
         },
         menu = {
           draw = {
@@ -62,13 +75,24 @@ return {
       -- default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, via `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lsp', 'path', 'snippets', 'dictionary', 'buffer' },
+        providers = {
+          dictionary = {
+            -- dictionary_files = '/usr/share/dict/words',
+            module = 'blink-cmp-dictionary',
+            name = 'Dict',
+            -- Make sure this is at least 2.
+            -- 3 is recommended
+            min_keyword_length = 3,
+            opts = {
+              -- options for blink-cmp-dictionary
+              dictionary_files = {'/usr/share/dict/words'},
+            },
+          },
+        },
         -- optionally disable cmdline completions
         -- cmdline = {},
       },
-
-      -- experimental signature help support
-      -- signature = { enabled = true }
     },
     -- allows extending the providers array elsewhere in your config
     -- without having to redefine it

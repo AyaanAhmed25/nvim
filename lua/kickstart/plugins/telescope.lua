@@ -180,6 +180,7 @@ return {
       vim.keymap.set('n', '<leader>sp', builtin.registers, { desc = '[S]earch registers' })
       vim.keymap.set('n', '<leader>sm', builtin.marks, { desc = '[S]earch [M]arks' })
       vim.keymap.set('n', '<leader>sb', "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", { desc = '[S]earch in [B]uffers' })
+      vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[G]it [S]tatus' })
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find()
       end, { desc = '[/] Fuzzily search in current buffer' })
